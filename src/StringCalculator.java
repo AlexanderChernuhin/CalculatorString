@@ -39,14 +39,14 @@ public class StringCalculator {
                 result = calculate(operand1, operator, operand2);
             }
 
-            System.out.println("Результат: \"" + result + "\"");
+            System.out.println("Результат: \"" + ellipsisAfterFortyCharacters(result) + "\"");
         } catch (Exception e) {
             System.out.println("Ошибка: " + e.getMessage());
         }
     }
 
     public static boolean isValidOperator(String operator) {
-        return operator.equals("+") ||  operator.equals("-") || operator.equals("*") || operator.equals("/");
+        return operator.equals("+") || operator.equals("-") || operator.equals("*") || operator.equals("/");
     }
 
     public static String calculate(String operand1, String operator, int operand2) {
@@ -96,4 +96,11 @@ public class StringCalculator {
         return operand;
     }
 
+    public static String ellipsisAfterFortyCharacters(String result) {
+        if (result.length() > 40) {
+            return result.substring(0, 40) + "...";
+        } else {
+            return result;
+        }
+    }
 }
